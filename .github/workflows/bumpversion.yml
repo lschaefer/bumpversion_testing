@@ -25,8 +25,23 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
 
-      - name: Install Python dependencies
-        run: pip install bumpversion
+      - name: Bump version
+        uses: remorses/bump-version@js
+	with:
+	  version_file: ./setup.py
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Run bumpversion
-        run: bumpversion patch
+# - name: Install Python dependencies
+#         run: pip install bumpversion
+# 
+#       - name: Run bumpversion
+#         run: bumpversion patch
+# 
+#       - name: GitHub Push Tag
+#         uses: ad-m/github-push-action@v0.6.0
+# 
+#       - name: GitHub Push Tag
+#         uses: ad-m/github-push-action@v0.6.0
+# 	with:
+# 	  tags: true
+# 
