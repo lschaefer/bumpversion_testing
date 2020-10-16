@@ -12,10 +12,10 @@ jobs:
     strategy:
       matrix:
         python: ['3.7']
+        BUMPVERSIONLEVEL: ["patch"]
 
     env:
       PYTHON: ${{ matrix.python }}
-      BUMPVERSIONLEVEL: "patch"
       
     steps:
       - name: Check out Git repository
@@ -33,7 +33,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          bumpversion --verbose ${{ BUMPVERSIONLEVEL }}
+          bumpversion --verbose ${{ matrix.BUMPVERSIONLEVEL }}
 
       - name: GitHub Push Tag
         uses: ad-m/github-push-action@v0.6.0
