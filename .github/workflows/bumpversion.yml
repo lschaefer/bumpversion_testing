@@ -30,9 +30,9 @@ jobs:
 
       - name: Run bumpversion
         run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        bumpversion patch
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          bumpversion patch
 
       - name: GitHub Push Tag
         uses: ad-m/github-push-action@v0.6.0
