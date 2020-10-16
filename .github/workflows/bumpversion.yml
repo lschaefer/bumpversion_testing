@@ -29,9 +29,10 @@ jobs:
         run: pip install bumpversion
 
       - name: Run bumpversion
-        run: bumpversion patch
-        with:
-          token: ${{ github.token }}
+        run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        bumpversion patch
 
       - name: GitHub Push Tag
         uses: ad-m/github-push-action@v0.6.0
