@@ -30,14 +30,14 @@ jobs:
 
       - name: Run bumpversion
         run: bumpversion patch
-	with:
-	  token: ${{ github.token }}
+        with:
+          token: ${{ github.token }}
 
       - name: GitHub Push Tag
         uses: ad-m/github-push-action@v0.6.0
 
       - name: GitHub Push Tag
         uses: ad-m/github-push-action@v0.6.0
-	with:
-	  tags: true
+        with:
+          tags: true
 
