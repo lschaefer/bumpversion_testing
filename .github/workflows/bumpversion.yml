@@ -27,8 +27,8 @@ jobs:
 
       - name: Bump version
         uses: remorses/bump-version@js
-	with:
-	  version_file: ./setup.py
+        with:
+          version_file: ./setup.py
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
 # - name: Install Python dependencies
