@@ -9,14 +9,21 @@ jobs:
     name: Run bump version
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        python: ['3.7']
+
+    env:
+      PYTHON: ${{ matrix.python }}
+      
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v2
 
       - name: Set up Python
         uses: actions/setup-python@v1
-         with:
-           python-version: 3.7
+        with:
+          python-version: ${{ matrix.python }}
 
       - name: Install Python dependencies
         run: pip install bumpversion
