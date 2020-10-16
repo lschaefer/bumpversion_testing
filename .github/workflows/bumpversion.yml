@@ -1,0 +1,25 @@
+name: bumpversion
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  run-bumpversion:
+    name: Run bump version
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v1
+	with:
+	  python-version: 3.7
+
+      - name: Install Python dependencies
+        run: pip install bumpversion
+
+      - name: Run bumpversion
+        run: bumpversion patch
