@@ -33,8 +33,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-	  current_version=$(grep version subdir1/setup.py | cut -d "'" -f 2)
-	  bumpversion --current-version $current_version patch subdir1/setup.py
+	  bumpversion patch
 
       - name: GitHub Push Tag
         uses: ad-m/github-push-action@v0.6.0
