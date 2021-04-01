@@ -1,10 +1,9 @@
 name: bumpversion_subdir2
 on:
   push:
-    branches:
-      - master
     paths:
       - 'subdir2/**'
+      - '.github/workflows/bumpversion_subdir2.yml'
 
 jobs:
   run-bumpversion:
