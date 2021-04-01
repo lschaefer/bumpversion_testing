@@ -1,8 +1,10 @@
-name: bumpversion
+name: bumpversion_subdir1
 on:
   push:
     branches:
       - master
+    paths:
+      - 'subdir1/**'
 
 jobs:
   run-bumpversion:
@@ -32,7 +34,8 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          bumpversion patch
+	  current_version=$(grep version subdir1/setup.py | cut -d "'" -f 2)
+	  bumpversion --current-version $current_version patch subdir1/setup.py
 
       - name: GitHub Push Tag
         uses: ad-m/github-push-action@v0.6.0
